@@ -1,10 +1,7 @@
-const heroes = [
-    {id: 1, name: "Batman",  commicBook: 1},
-    {id: 2, name: "Spider man", commicBook: 2}
-]
+import hero from '../../models/hero.js'
 
 export default {
     Query: {
-        heroes: () => heroes 
+        heroes: () => hero.all()
     }
 }

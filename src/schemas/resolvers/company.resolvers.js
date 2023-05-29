@@ -1,10 +1,7 @@
-const companies = [
-    {id: 1, name: "DC comics" },
-    {id: 2, name: "Marvel Comics"}
-]
+import company from '../../models/company.js' 
 
 export default {
     Query: {
-        getAllCompanies: () => companies 
+        companies: () => company.all() 
     }
 }
