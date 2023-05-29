@@ -1,0 +1,9 @@
+type Hero {
+    id: ID!
+    name: String!
+    commicBook: Company! 
+}
+
+type Query {
+    heroes: [Hero!]!
+}

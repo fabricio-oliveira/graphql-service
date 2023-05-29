@@ -12,7 +12,7 @@
   },
   "scripts": {
     "start": "node src/main.js",
-    "dev": "nodemon -L src/main.js --exec \"yarn start\""
+    "dev": "nodemon --ext js,gql -L src/main.js --exec \"yarn start\""
   },
   "devDependencies": {
     "nodemon": "^2.0.22"
