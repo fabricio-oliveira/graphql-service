@@ -5,7 +5,7 @@ import path from 'path'
 
 const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
 
-const typeDefs = mergeTypeDefs(loadFilesSync(path.join(__dirname, "./typeDefs"), 
+const typeDefs = mergeTypeDefs(loadFilesSync(path.join(__dirname, "./types"), 
 { 
     recursive: true,
     extensions: ['gql'],

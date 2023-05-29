@@ -1,9 +1,21 @@
 import company from "./company.js"
 
-const heroes = [
-    {id: 1, name: "Batman",  commicBook: company.index(0)},
-    {id: 2, name: "Spider man", commicBook: 2, commicBook: company.index(1)}
+let index = 3
+
+let  heroes = [
+    {id: 1, name: "Batman",  company: company.index(0)},
+    {id: 2, name: "Spider man", company: 2, company: company.index(1)}
 ]
 
+const all = () =>  heroes
 
-export default { all: () => (heroes), }
+function insert({company:companyId, ...args}) {
+    const inc = company.find(companyId)
+    
+    const hero = {id: index++, ...args, company: inc }
+    heroes.push(hero)
+    
+    return hero
+}
+
+export default { all, insert }

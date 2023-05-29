@@ -1,0 +1,13 @@
+type Hero {
+    id: ID!
+    name: String!
+    company: Company! 
+}
+
+type Query {
+    heroes: [Hero!]!
+}
+
+type Mutation {
+    hero(name: String!, company: Int!): Hero!
+}
