@@ -6,3 +6,7 @@ type Company {
 type Query {
     companies: [Company]!
 } 
+
+type Mutation {
+    company(name: String!): Company!
+}

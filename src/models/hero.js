@@ -1,6 +1,6 @@
 import company from "./company.js"
 
-let index = 3
+let sequence = 3
 
 let  heroes = [
     {id: 1, name: "Batman",  company: company.index(0)},
@@ -12,7 +12,7 @@ const all = () =>  heroes
 function insert({company:companyId, ...args}) {
     const inc = company.find(companyId)
     
-    const hero = {id: index++, ...args, company: inc }
+    const hero = {id: sequence++, ...args, company: inc }
     heroes.push(hero)
     
     return hero
