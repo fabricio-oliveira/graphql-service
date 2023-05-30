@@ -81,7 +81,7 @@ class BuilderServer {
     }
 
     setHealthCheck(path){
-        this.router.get(path, (_, res) => {
+        this.setRoute('GET', path, (_, res) => {
             res.send({msg: "health"})
         })
         return this
@@ -95,7 +95,8 @@ class BuilderServer {
          // build schema and pubSub for graphql
         if (this.enableGraphqlServer) {
             this.schema = makeExecutableSchema({ typeDefs, resolvers });
-            this.pubSub = new PubSub();
+            const pubSub = new PubSub();
+            this.context = { pubSub: pubSub }
         }
 
         // enable wsServer ( for graphql subscriber)
@@ -110,7 +111,7 @@ class BuilderServer {
             this.serverCleanup = useServer(
               {
                 schema: this.schema,
-                context: { pubSub: this.pubSub }
+                context: this.context
               },
               wsServer
             );
@@ -141,7 +142,7 @@ class BuilderServer {
             });
 
             await gqlServer.start();
-            this.app.use(this.graphqlRootPath, expressMiddleware(gqlServer));
+            this.app.use(this.graphqlRootPath, expressMiddleware(gqlServer, {context:  async () => this.context}));
         }
 
         // enable routes

@@ -6,17 +6,20 @@ export default {
     companies: () => company.all(),
   },
   Mutation: {
-    createCompany: (_, args, { pubsub }) => {
-      const company = company.insert(args);
-      pubsub.publish(channel.companyAdded, {
-        companyAdded: company,
+    createCompany: (_, args, { pubSub }) => {
+      const newComapny = company.insert(args);
+      pubSub.publish(channel.companyAdded, {
+        companyAdded: {
+          companyAdded: newComapny,
+        },
       });
-      return company;
+      return newComapny;
     },
   },
   Subscription: {
     companyAdded: {
-      subscribe: (_, __, {pubSub}) => pubSub.asyncIterator([channel.companyAdded]),
+      subscribe: (_, __, { pubSub }) =>
+        pubSub.asyncIterator([channel.companyAdded]),
     },
   },
 };
