@@ -9,9 +9,7 @@ export default {
     createCompany: (_, args, { pubSub }) => {
       const newComapny = company.insert(args);
       pubSub.publish(channel.companyAdded, {
-        companyAdded: {
           companyAdded: newComapny,
-        },
       });
       return newComapny;
     },
