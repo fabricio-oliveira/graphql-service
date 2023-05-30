@@ -5,6 +5,6 @@ export default {
         heroes: () => hero.all()
     },
     Mutation: {
-        hero: (_, args) => hero.insert(args)
+        createHero: (_, args) => hero.insert(args)
     }
 }

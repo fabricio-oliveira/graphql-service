@@ -9,5 +9,5 @@ type Query {
 }
 
 type Mutation {
-    hero(name: String!, company: Int!): Hero!
+    createHero(name: String!, company: Int!): Hero!
 }

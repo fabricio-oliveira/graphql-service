@@ -8,5 +8,9 @@ type Query {
 } 
 
 type Mutation {
-    company(name: String!): Company!
+    createCompany(name: String!): Company!
+}
+
+type Subscription {
+    companyAdded: Company!
 }
