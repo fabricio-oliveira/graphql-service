@@ -7,11 +7,11 @@ For this project was used nodejs (19.9.0), Express and Apollo Server.
 So, before run the project check that you have the correct version of node installed.
 
 ## to run:
-```js
+```sh
 npm i && npm run dev
 ```
 or
-```js
+```sh
 yarn i && yarn dev
 ```
 
